@@ -6,11 +6,6 @@ using System.Threading;
 
 namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
 {
-    /// <summary>
-    /// Provide the implementation for a collector.
-    /// For the sample, we're writing <see cref="IoTCloudToDeviceItem"/>s to disk. 
-    /// Collectors are used for emitting a series of discrete messages (ie, an output binding).
-    /// </summary>
     public class IoTCloudToDeviceAsyncCollector : IAsyncCollector<IoTCloudToDeviceItem>
     {
         private readonly ServiceClient serviceClient;
@@ -33,7 +28,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
         private async Task SendCloudToDeviceMessageAsync(IoTCloudToDeviceItem item)
         {
             char[] messageCharArr = item.Message.ToCharArray();
-            var deviceToCloudMessage = new Message(Encoding.ASCII.GetBytes(messageCharArr));
+            var deviceToCloudMessage = new Message(Encoding.UTF8.GetBytes(messageCharArr));
             await serviceClient.SendAsync(item.DeviceId, deviceToCloudMessage);
         }
     }

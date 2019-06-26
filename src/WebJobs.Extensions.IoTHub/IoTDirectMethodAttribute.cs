@@ -14,9 +14,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub
     [Binding]
     public class IoTDirectMethodAttribute : Attribute
     {
-        [AutoResolve]
-        public string DeviceId { get; set; }
-
         [AppSetting]
         public string Connection { get; set; }
     }

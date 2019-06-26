@@ -26,10 +26,10 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
             return Task.CompletedTask;
         }
 
-        private async Task InvokeMethod(string deviceID, string methodName, JObject payload, CancellationToken cancellationToken)
+        private async Task InvokeMethod(string deviceID, string methodName, string payload, CancellationToken cancellationToken)
         {
             var methodInvocation = new CloudToDeviceMethod(methodName) { ResponseTimeout = TimeSpan.FromSeconds(30) };
-            methodInvocation.SetPayloadJson(payload.ToString());
+            methodInvocation.SetPayloadJson(payload);
             var response = await serviceClient.InvokeDeviceMethodAsync(deviceID, methodInvocation, cancellationToken);
         }
     }

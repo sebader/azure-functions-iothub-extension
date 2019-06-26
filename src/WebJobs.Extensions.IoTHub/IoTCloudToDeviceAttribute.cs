@@ -13,10 +13,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub
     /// </summary>
     [Binding]
     public class IoTCloudToDeviceAttribute : Attribute
-    {
-        [AutoResolve]
-        public string DeviceId { get; set; }   
-
+    { 
         [AppSetting]
         public string Connection { get; set; }
     }

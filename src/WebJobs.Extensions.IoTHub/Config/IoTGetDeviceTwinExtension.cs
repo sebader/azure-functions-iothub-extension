@@ -48,7 +48,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
         // All {} and %% in the Attribute have been resolved by now.
         private Twin BuildItemFromAttr(IoTGetDeviceTwinAttribute attribute)
         {
-            string deviceId = attribute.DeviceId;
             GetDeviceTwinAsync(attribute).Wait();
             return deviceTwin;
         }

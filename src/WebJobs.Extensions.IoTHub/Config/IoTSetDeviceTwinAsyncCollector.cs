@@ -28,7 +28,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
 
         private async Task SetDesiredConfigurationAndQuery(IoTSetDeviceTwinItem item, CancellationToken cancellationToken)
         {
-            var twin = await registryManager.GetTwinAsync(item.DeviceId, cancellationToken); // how to include cancellation token?
+            var twin = await registryManager.GetTwinAsync(item.DeviceId, cancellationToken);
             await registryManager.UpdateTwinAsync(twin.DeviceId, item.Patch.ToString(), twin.ETag);
         }
     }

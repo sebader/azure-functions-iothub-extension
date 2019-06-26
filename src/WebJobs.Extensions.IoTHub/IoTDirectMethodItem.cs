@@ -15,7 +15,9 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub
         // MethodName to be invoked
         public string MethodName { set; get; }
         
-        // Payload as arguments to the method
-        public JObject Payload { set; get; }
+        /// <summary>
+        /// Payload to the direct method. Needs to be a JSON as string
+        /// </summary>
+        public string Payload { set; get; }
     }
 }
