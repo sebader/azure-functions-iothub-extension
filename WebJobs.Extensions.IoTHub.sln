@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webjobs.Extensions.IoTHub.Tests", "test\Webjobs.Extensions.IoTHub.Tests\Webjobs.Extensions.IoTHub.Tests.csproj", "{623C71B0-8B5E-46B4-83AE-6CE9E3E4B13D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C5A6A582-90C8-4C55-A0E8-F7EDB6F6D6AC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{C5A6A582-90C8-4C55-A0E8-F7EDB6F6D6AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{05892904-2034-4A3D-A1FC-F5D268C0C630}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobs.Extensions.IoTHub", "src\WebJobs.Extensions.IoTHub\WebJobs.Extensions.IoTHub.csproj", "{32C8382C-5DAA-4B29-9D41-034AEF50F740}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobs.Extensions.IoTHub.Tests.Function", "test\WebJobs.Extensions.IoTHub.Tests.Function\WebJobs.Extensions.IoTHub.Tests.Function.csproj", "{113C980B-157E-40F4-87AD-03C2E10AB264}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobs.Extensions.IoTHub.Tests.Function", "samples\WebJobs.Extensions.IoTHub.Samples.Function\WebJobs.Extensions.IoTHub.Samples.Function.csproj", "{113C980B-157E-40F4-87AD-03C2E10AB264}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{623C71B0-8B5E-46B4-83AE-6CE9E3E4B13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{623C71B0-8B5E-46B4-83AE-6CE9E3E4B13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{623C71B0-8B5E-46B4-83AE-6CE9E3E4B13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{623C71B0-8B5E-46B4-83AE-6CE9E3E4B13D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{32C8382C-5DAA-4B29-9D41-034AEF50F740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32C8382C-5DAA-4B29-9D41-034AEF50F740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32C8382C-5DAA-4B29-9D41-034AEF50F740}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,7 +30,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{623C71B0-8B5E-46B4-83AE-6CE9E3E4B13D} = {C5A6A582-90C8-4C55-A0E8-F7EDB6F6D6AC}
 		{32C8382C-5DAA-4B29-9D41-034AEF50F740} = {05892904-2034-4A3D-A1FC-F5D268C0C630}
 		{113C980B-157E-40F4-87AD-03C2E10AB264} = {C5A6A582-90C8-4C55-A0E8-F7EDB6F6D6AC}
 	EndGlobalSection

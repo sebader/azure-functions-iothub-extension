@@ -6,13 +6,9 @@ Fully featured IoT Hub input and output bindings to Azure IoT Hub, allowing comm
   * Set Device Twin: output binding that updates desired properties of specified device from Azure Functions
   * Get Device Twin: input binding that gets device twin of the specified device once the Function's trigger is fired
 
-#### Example
-
-See more [sample code](https://github.com/ElleTojaroon/azure-functions-iothub-extension/tree/master/samples/functions) for each scenario
-
 #### Sample Code
 
-[functions folders](https://github.com/ElleTojaroon/azure-functions-iothub-extension/tree/master/samples/functions) contains functions to use in Azure Functions portal. To run, do the following:
+[functions folders](https://github.com/sebader/azure-functions-iothub-extension/blob/master/test/WebJobs.Extensions.IoTHub.Tests.Function/Functions.cs) contains functions to use in Azure Functions - either in local debugging or in the cloud. To run, do the following:
 
 > Direct Method assumes that the device has a method matched with the specified method's name given in the argument. Otherwise, Function throws an exception. 
 
