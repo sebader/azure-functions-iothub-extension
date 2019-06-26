@@ -18,7 +18,7 @@ namespace WebJobs.Extensions.IoTHub.Tests.Function
         public static async Task DirectMethod([HttpTrigger(AuthorizationLevel.Function, "post", Route = "DirectMethod/{deviceid}/{methodname}")] HttpRequest request,
             string deviceid,
             string methodname,
-            [IoTDirectMethod(Connection = "iot")] IAsyncCollector<IoTDirectMethodItem> output, ILogger log)
+            [IoTDirectMethod(Connection = "iothubconnection", DirectMethodTimeout = 20)] IAsyncCollector<IoTDirectMethodItem> output, ILogger log)
         {
             log.LogInformation($"DirectMethod function executed at: {DateTime.Now}");
 
@@ -35,7 +35,7 @@ namespace WebJobs.Extensions.IoTHub.Tests.Function
         [FunctionName("CloudToDeviceMessage")]
         public static async Task CloudToDeviceMessage([HttpTrigger(AuthorizationLevel.Function, "post", Route = "CloudToDeviceMessage/{deviceid}")] HttpRequest request,
             string deviceid,
-            [IoTCloudToDevice(Connection = "iot")] IAsyncCollector<IoTCloudToDeviceItem> output,
+            [IoTCloudToDevice(Connection = "iothubconnection")] IAsyncCollector<IoTCloudToDeviceItem> output,
             ILogger log)
         {
             log.LogInformation($"CloudToDeviceMessage function executed at: {DateTime.Now}");
@@ -54,7 +54,7 @@ namespace WebJobs.Extensions.IoTHub.Tests.Function
 
         [FunctionName("SetTwin")]
         public static async Task SetTwin([HttpTrigger(AuthorizationLevel.Function, "post", Route = "SetTwin/{deviceid}")] HttpRequest request,
-            [IoTSetDeviceTwin(Connection = "iot")] IAsyncCollector<string> output,
+            [IoTSetDeviceTwin(Connection = "iothubconnection")] IAsyncCollector<string> output,
             ILogger log)
         {
             log.LogInformation($"SetTwin function executed at: {DateTime.Now}");
@@ -82,7 +82,7 @@ namespace WebJobs.Extensions.IoTHub.Tests.Function
         [FunctionName("GetTwin")]
         public static IActionResult GetTwin([HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetTwin/{deviceid}")] HttpRequest request,
             string deviceid,
-            [IoTGetDeviceTwin(Connection = "iot", DeviceId = "{deviceid}")] JObject twin,
+            [IoTGetDeviceTwin(Connection = "iothubconnection", DeviceId = "{deviceid}")] JObject twin,
             ILogger log)
         {
             log.LogInformation($"GetTwin function executed at: {DateTime.Now}");

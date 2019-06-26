@@ -17,6 +17,9 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub
         [AutoResolve]
         public string DeviceId { get; set; }
 
+        /// <summary>
+        /// Name of the AppSetting that contains the IoT Hub connection string, e.g. of the iothubowner
+        /// </summary>
         [AppSetting]
         public string Connection { get; set; }
     }

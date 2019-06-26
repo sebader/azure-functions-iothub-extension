@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.Devices;
 using System.Threading;
 
@@ -27,8 +26,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
 
         private async Task SendCloudToDeviceMessageAsync(IoTCloudToDeviceItem item)
         {
-            char[] messageCharArr = item.Message.ToCharArray();
-            var deviceToCloudMessage = new Message(Encoding.UTF8.GetBytes(messageCharArr));
+            var deviceToCloudMessage = new Message(Encoding.UTF8.GetBytes(item.Message));
             await serviceClient.SendAsync(item.DeviceId, deviceToCloudMessage);
         }
     }

@@ -8,7 +8,9 @@ Fully featured IoT Hub input and output bindings to Azure IoT Hub, allowing comm
 
 #### Sample Code
 
-[functions folders](https://github.com/sebader/azure-functions-iothub-extension/blob/master/test/WebJobs.Extensions.IoTHub.Tests.Function/Functions.cs) contains functions to use in Azure Functions - either in local debugging or in the cloud. To run, do the following:
+[Functions.cs](https://github.com/sebader/azure-functions-iothub-extension/blob/master/samples/WebJobs.Extensions.IoTHub.Samples.Function/Functions.cs) contains sample Functions to use in Azure Functions - either in local debugging or in the cloud. 
+The samples implement each binding extension once to show their basic usage.
+To run locally, create a local.settings.json based on the sample.local.settings.json and include the IoT Hub connection string. For deployment in Azure create a corresponding AppSetting.
 
 > Direct Method assumes that the device has a method matched with the specified method's name given in the argument. Otherwise, Function throws an exception. 
 

@@ -1,19 +1,19 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.Devices;
 using System.Threading;
 using System;
-using Newtonsoft.Json.Linq;
 
 namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
 {
     public class IoTDirectMethodAsyncCollector : IAsyncCollector<IoTDirectMethodItem>
     {
         private readonly ServiceClient serviceClient;
+        private readonly int timeout;
 
         public IoTDirectMethodAsyncCollector(ServiceClient serviceClient, IoTDirectMethodAttribute attribute)
         {
             this.serviceClient = serviceClient;
+            this.timeout = attribute.DirectMethodTimeout;
         }
 
         public async Task AddAsync(IoTDirectMethodItem item, CancellationToken cancellationToken = default(CancellationToken))
@@ -28,7 +28,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub.Config
 
         private async Task InvokeMethod(string deviceID, string methodName, string payload, CancellationToken cancellationToken)
         {
-            var methodInvocation = new CloudToDeviceMethod(methodName) { ResponseTimeout = TimeSpan.FromSeconds(30) };
+            var methodInvocation = new CloudToDeviceMethod(methodName) { ResponseTimeout = TimeSpan.FromSeconds(this.timeout) };
             methodInvocation.SetPayloadJson(payload);
             var response = await serviceClient.InvokeDeviceMethodAsync(deviceID, methodInvocation, cancellationToken);
         }
