@@ -12,6 +12,11 @@ namespace Microsoft.Azure.WebJobs.Extensions.IoTHub
         // Destination IoT DeviceId
         public string DeviceId { set; get; }
 
+        /// <summary>
+        /// Optional Parameter for an IoT Edge module name. If null, it is assumed as a Direct Method call against a "normal" IoT Device.
+        /// </summary>
+        public string ModuleName { get; set; } = null;
+
         // MethodName to be invoked
         public string MethodName { set; get; }
         
